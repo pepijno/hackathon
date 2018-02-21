@@ -105,4 +105,4 @@ if(process.argv.length == 2) {
 	return 1;
 }
 
-console.log(JSON.stringify(txs.map(tx => toJson(tx.transaction))));
+console.log(JSON.stringify(txs.map(tx => toJson(tx.transaction)), null, 4));
