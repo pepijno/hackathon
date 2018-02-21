@@ -33,16 +33,16 @@ node index.js 20 1
 
 ## Using bitcoin nodes
 
-The `scipt.sh` script provides commands for a three-node setup, 'owned' by alice, bob and eve.
+The `manage_nodes.sh` script provides commands for a three-node setup, 'owned' by alice, bob and eve.
 
 To start the nodes (this takes a few seconds):
 ```bash
-./script.sh start
+./manage_nodes.sh start
 ```
 
 To stop the nodes:
 ```bash
-./script.sh stop
+./manage_nodes.sh stop
 ```
 
 To mine the initial blocks for eve:
