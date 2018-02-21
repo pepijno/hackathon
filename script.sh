@@ -83,6 +83,6 @@ case "$1" in
 		esac
 		;;
 	*)
-		echo $"Usage: $0 {start|stop|mine|send \$from \$user \$amount|command \$user \$command}"
+		echo $"Usage: $0 {start|stop|mine|send <from> <to> <amount>|command <who> <command>}"
 		exit 1	
 esac

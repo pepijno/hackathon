@@ -18,8 +18,44 @@ In the meantime, download the bitcoin core zip ([https://bitcoin.org/en/download
 ## Generating transactions
 
 Usage:
-	```node index.js <amount> <type>```
+```bash
+node index.js <amount> <type>
+```
 
 ```amount```: The amount of transactions to generate. Defaults to ```10```.
 
 ```type```: The type of transactions, can be either ```0```, ```1``` or ```2```. ```1``` means each transaction has exactly two outputs: one regular output and one change output. Using type ```1``` will generate transactions with either two or three outputs. Using type ```2``` generate transactions with either two or three outputs and randomly adds extra inputs from outside the tree to some of the transactions. ```type``` defaults to ```0```.
+
+For example, to generate 20 transactions with each transaction having two or three outputs:
+```bash
+node index.js 20 1
+```
+
+## Using bitcoin nodes
+
+The `scipt.sh` script provides commands for a three-node setup, 'owned' by alice, bob and eve.
+
+To start the nodes (this takes a few seconds):
+```bash
+./script.sh start
+```
+
+To stop the nodes:
+```bash
+./script.sh stop
+```
+
+To mine the initial blocks for eve:
+```bash
+./script mine
+```
+
+Sending bitcoin from one user to another user:
+```bash
+./script send <from> <to> <amount in bitcoins>
+```
+
+Executing arbitrary bitcoin rpc calls:
+```bash
+./script command <who> <command>
+```
