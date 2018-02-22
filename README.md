@@ -1,4 +1,4 @@
-## prerequisites
+## Prerequisites
 
 node & npm ([https://nodejs.org/en/download/](https://nodejs.org/en/download/))
 
