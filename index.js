@@ -55,9 +55,11 @@ function generateTxs(total = 10, type = 0) {
 		const index = Math.floor((Math.random() * outputs.length));
 		const output = outputs[index];
 		outputs.splice(index, 1);
+		let extraInput = false;
 		if(type == 2) {
 			txb.addInput(output.transaction, output.index);
 			if(Math.random() < 0.2) {
+				extraInput = true;
 				txb.addInput(sha256(Math.random().toString()), 0);
 			}
 		} else {
@@ -67,7 +69,8 @@ function generateTxs(total = 10, type = 0) {
 		const amountOfOutputs = Math.floor((Math.random() * maxOutputs) + 1);
 		const outs = [];
 		for(let j = 0; j < amountOfOutputs; ++j) {
-			txb.addOutput(bitcoin.ECPair.makeRandom({ network: bitcoin.networks.regtest }).getAddress(), Math.floor((output.amount - 9000)/amountOfOutputs));
+			const extra = extraInput ? 15000 : 0;
+			txb.addOutput(bitcoin.ECPair.makeRandom({ network: bitcoin.networks.regtest }).getAddress(), extra + Math.floor((output.amount - 9000)/amountOfOutputs));
 			outs.push({
 				index: j,
 				amount: Math.floor((output.amount - 9000)/amountOfOutputs),
