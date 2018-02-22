@@ -35,8 +35,11 @@ case "$1" in
 		rm -rf alice/regtest/
 		;;
 	mine)
-		./bitcoin-cli.exe $EVE_PARAMS generate 3
-		./bitcoin-cli.exe $EVE_PARAMS generate 100
+		AMOUNT="103"
+		if [[ "2" -eq "$#" ]]; then
+			AMOUNT="$2"
+		fi
+		./bitcoin-cli.exe $EVE_PARAMS generate $AMOUNT
 		;;
 	send)
 		case "$3" in
